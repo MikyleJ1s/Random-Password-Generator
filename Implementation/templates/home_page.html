@@ -1,0 +1,92 @@
+<html>
+    <title>Random Password Generator</title>
+    <script type = "text/javascript" src = {{url_for('static', filename = 'functions.js')}}></script>
+    <link rel= "stylesheet" href="{{url_for("static", filename = "styles.css")}}">
+    <body>
+        <div class='box-container'>
+            <h1>Random Password Generator</h1>
+            <form name = 'user_inputs' action="/generate_password" method="POST">
+                <h3>Length of your password: </h3>
+                <input id='hasLength' type="number" min='1' max='99' name='use_length' value="{{request.form.use_length}}"></input><br>
+                <h3>Customize your password: </h3>
+
+                        <label class="container">Lowercase
+                        <input type="checkbox" name='use_lowercase'>
+                        <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">Uppercase
+                        <input type="checkbox" name='use_uppercase'>
+                        <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">Numerical
+                        <input type="checkbox" name='use_digits'>
+                        <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">Punctuation
+                        <input type="checkbox" name='use_punctuation'></input>
+                        <span class="checkmark"></span>
+                        </label>
+
+                <br><br><br>
+
+               <div style='text-align:center'>
+                    <button id='generate_button' type="submit">Generate Password</button>
+                </div>
+            </form>
+               
+            {% if unique_password%}
+                <div style='text-align: center'>{{unique_password}}</div>
+            {% endif %}
+        </div>
+
+    </body>
+
+</html>
+
+
+<html>
+<style>
+/* The container */
+.container{
+  position: relative;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: green;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: lime;
+}
+
+</style>
+
+</html>

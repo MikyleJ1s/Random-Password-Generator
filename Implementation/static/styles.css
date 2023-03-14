@@ -1,0 +1,68 @@
+body{
+    background-image: url('background_image.png');
+    background-size: cover;
+    align-content: center;
+}
+
+.box-container{
+    margin: auto;
+    width: 50%;
+    height: 60%;
+    border: 3px solid #73AD21;
+    padding: 30px;
+    color: lime;
+    position: relative;
+    top: 20%;
+    background-color: black;
+  }
+
+  input {
+    font-family: "Calibri", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 1;
+    border-color: limegreen;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+   
+  .column{
+    float: left; 
+    width: 30%;
+    padding: 0px 10px;
+  }
+  
+  .row{
+    margin: 0 -5px;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .column{
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  button {
+    background-color: lime;
+    width: 70%;
+    border-radius: 10px;
+    border-width: 3px;
+    padding: 15px;
+    color: black;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-color: limegreen;
+  }
+  
+  button:disabled{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
