@@ -5,7 +5,7 @@
     <body>
         <div class='box-container'>
             <h1>Random Password Generator</h1>
-            <form name = 'user_inputs' action="/generate_password" method="POST" onsubmit='validate()'>
+            <form name = 'user_inputs' action="/" method="POST" onsubmit='validate()'>
                 <h3>Length of your password: </h3>
                 <input id='hasLength' type="number" min='1' max='99' name='use_length' value="{{request.form.use_length}}"></input><br>
                 <h3>Customize your password: </h3>

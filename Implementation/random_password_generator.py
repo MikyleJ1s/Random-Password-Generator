@@ -6,16 +6,13 @@ import random, string, logging, time
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename="logs.log", filemode='a', level = logging.DEBUG, format = f"%(asctime)s %(levelname)s %(message)s")
 
+def password_generator(password_range, length):
+    return "".join(random.choices(password_range, k=int(length)))
+
 app = Flask(__name__)
 
-# direct user to the main page ...
-@app.route('/')
-def home_page():
-    app.logger.info("Redirected to the main page")
-    return redirect(url_for('generate_password'))
-
 # main page logic ...
-@app.route('/generate_password', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def generate_password():
     # letters available ....
     ascii_lowercase = string.ascii_lowercase
@@ -61,7 +58,7 @@ def generate_password():
             
             # output a password according to the lenght and customization given ...
             app.logger.info("Returning a unique password")
-            return render_template('home_page.html', unique_password = "".join(random.choices(password_range, k=int(request.form['use_length']))))
+            return render_template('home_page.html', unique_password = password_generator(password_range, request.form['use_length']))
         
         # length was not given so return an error ...
         app.logger.info("Can't return a password because no length was provided")
